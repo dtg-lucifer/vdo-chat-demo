@@ -14,30 +14,28 @@ const Call = () => {
     setLink(`http://localhost:3000/call/${id}`);
   }, []);
 
-  const handleClickCopyButton = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      e.preventDefault();
-      navigator.clipboard.writeText(linkInputRef.current?.value!);
-    },
-    []
-  );
+  const handleClickCopyButton = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(linkInputRef.current?.value!);
+  };
+  
+  const handleClickJoinButton = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    console.log(roomID);
 
-  const handleClickJoinButton = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      e.preventDefault();
-      // console.log(roomID)
-
-      if (roomID.includes("http://localhost:3000/call/")) {
-        const newId = roomID.split("/")[-1];
-        console.log(newId);
-        navigateTo(`/call/${newId}`);
-      } else {
-        console.log(roomID);
-        navigateTo(`/call/${roomID}`);
-      }
-    },
-    []
-  );
+    if (roomID.includes("/call/")) {
+      const newId = roomID.split("/").pop() as string;
+      console.log(newId);
+      navigateTo(`/call/${newId}`);
+    } else {
+      console.log(roomID);
+      navigateTo(`/call/${roomID}`);
+    }
+  };
 
   useEffect(() => {
     generateLink();
@@ -73,6 +71,7 @@ const Call = () => {
             }}
             onPaste={(e) => {
               setRoomID(e.clipboardData.getData("text"));
+              console.log(e.clipboardData.getData("text"));
             }}
             value={roomID}
           />
