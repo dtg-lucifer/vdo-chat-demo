@@ -1,0 +1,74 @@
+main.main__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+
+  & > div {
+    width: min(700px, 90%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    & > span {
+      width: 100%;
+      text-align: center;
+    }
+
+    & > span:first-child {
+      font-size: 30px;
+      font-weight: 600;
+      & > span {
+        color: blue;
+      }
+    }
+
+    & > span:last-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > input {
+        flex: 1;
+        padding: 0.8em 1.5em;
+        border-radius: 0.5rem 0 0 0.5rem;
+        border: 1px solid #ccc;
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.2s ease-in-out;
+        outline: none;
+
+        &:focus {
+          box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      & > button {
+        text-decoration: none;
+        background-color: blue;
+        color: white;
+        padding: 0.8em 1.5em;
+        border: 1px solid blue;
+        border-radius: 0 0.5rem 0.5rem 0;
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.2s ease-in-out;
+        cursor: pointer;
+        font-weight: 600;
+        box-sizing: content-box;
+
+        &:hover {
+          box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+}
