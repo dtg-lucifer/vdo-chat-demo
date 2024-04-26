@@ -1,0 +1,32 @@
+main.main__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100vh;
+  background-color: #f5f5f5;
+
+  & > div {
+    font-size: 50px;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    & > span {
+      color: blue;
+    }
+  }
+
+  & > a {
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    padding: 0.8em 1.5em;
+    border-radius: 1rem;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease-in-out;
+
+    &:hover {
+      box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
